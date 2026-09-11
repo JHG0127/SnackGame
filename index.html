@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4x4 슬라이딩 퍼즐</title>
-  <link rel="stylesheet" href="style.css?v=2">
+  <title>미니 게임 모음</title>
+  <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
   <main class="app" aria-labelledby="game-title">
     <section class="game-panel">
       <header class="header">
         <div>
-          <p class="eyebrow">Sliding Puzzle</p>
+          <p id="game-eyebrow" class="eyebrow">Sliding Puzzle</p>
           <h1 id="game-title">4x4 숫자 퍼즐</h1>
         </div>
         <div class="actions">
@@ -21,15 +21,24 @@
           <button id="new-game-button" class="button primary" type="button" aria-label="새 게임 시작">
             새 게임
           </button>
-          <button id="reset-record-button" class="button" type="button" aria-label="저장된 최고 기록 초기화">
+          <button id="reset-record-button" class="button" type="button" aria-label="현재 게임 최고 기록 초기화">
             기록 초기화
           </button>
         </div>
       </header>
 
+      <nav class="game-switcher" aria-label="게임 선택">
+        <button class="game-tab active" type="button" data-game="puzzle" aria-pressed="true">
+          숫자 퍼즐
+        </button>
+        <button class="game-tab" type="button" data-game="memory" aria-pressed="false">
+          카드 기억
+        </button>
+      </nav>
+
       <section class="stats" aria-label="현재 게임 상태">
         <div class="stat">
-          <span class="stat-label">이동</span>
+          <span id="move-label" class="stat-label">이동</span>
           <strong id="move-count">0</strong>
         </div>
         <div class="stat">
@@ -40,7 +49,7 @@
 
       <section class="records" aria-label="최고 기록">
         <div>
-          <span class="record-label">최소 이동</span>
+          <span id="best-move-label" class="record-label">최소 이동</span>
           <strong id="best-moves">-</strong>
         </div>
         <div>
@@ -69,17 +78,10 @@
           ×
         </button>
       </header>
-      <div class="dialog-content">
-        <p>숫자 타일을 움직여 1부터 15까지 순서대로 맞추는 퍼즐입니다.</p>
-        <ul>
-          <li>빈칸과 맞닿은 타일만 이동할 수 있습니다.</li>
-          <li>타일을 클릭하거나 키보드 방향키로 움직일 수 있습니다.</li>
-          <li>연한 초록색은 올바른 위치, 연한 노란색은 아직 맞춰야 할 타일입니다.</li>
-        </ul>
-      </div>
+      <div id="info-content" class="dialog-content"></div>
     </section>
   </div>
 
-  <script src="script.js?v=2"></script>
+  <script src="script.js?v=3"></script>
 </body>
 </html>
