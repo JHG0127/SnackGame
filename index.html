@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4x4 슬라이딩 퍼즐</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app" aria-labelledby="game-title">
+    <section class="game-panel">
+      <header class="header">
+        <div>
+          <p class="eyebrow">Sliding Puzzle</p>
+          <h1 id="game-title">4x4 숫자 퍼즐</h1>
+        </div>
+        <div class="actions">
+          <button id="new-game-button" class="button primary" type="button" aria-label="새 게임 시작">
+            새 게임
+          </button>
+          <button id="reset-record-button" class="button" type="button" aria-label="저장된 최고 기록 초기화">
+            기록 초기화
+          </button>
+        </div>
+      </header>
+
+      <section class="stats" aria-label="현재 게임 상태">
+        <div class="stat">
+          <span class="stat-label">이동</span>
+          <strong id="move-count">0</strong>
+        </div>
+        <div class="stat">
+          <span class="stat-label">시간</span>
+          <strong><span id="elapsed-time">0</span>초</strong>
+        </div>
+      </section>
+
+      <section class="records" aria-label="최고 기록">
+        <div>
+          <span class="record-label">최소 이동</span>
+          <strong id="best-moves">-</strong>
+        </div>
+        <div>
+          <span class="record-label">최단 시간</span>
+          <strong><span id="best-time">-</span><span id="best-time-unit"></span></strong>
+        </div>
+      </section>
+
+      <div
+        id="board"
+        class="board"
+        role="grid"
+        aria-label="4 곱하기 4 슬라이딩 퍼즐 보드. 빈칸과 맞닿은 타일을 클릭하거나 방향키로 이동하세요."
+        tabindex="0"
+      ></div>
+
+      <p id="message" class="message" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
