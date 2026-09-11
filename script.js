@@ -12,6 +12,9 @@ const bestTimeUnitElement = document.getElementById("best-time-unit");
 const messageElement = document.getElementById("message");
 const newGameButton = document.getElementById("new-game-button");
 const resetRecordButton = document.getElementById("reset-record-button");
+const infoButton = document.getElementById("info-button");
+const infoDialog = document.getElementById("info-dialog");
+const closeInfoButton = document.getElementById("close-info-button");
 
 let tiles = [];
 let moves = 0;
@@ -251,6 +254,17 @@ function startNewGame() {
   board.focus();
 }
 
+// 설명 창을 열고 닫을 때 키보드 포커스를 자연스럽게 되돌린다.
+function openInfoDialog() {
+  infoDialog.hidden = false;
+  closeInfoButton.focus();
+}
+
+function closeInfoDialog() {
+  infoDialog.hidden = true;
+  infoButton.focus();
+}
+
 // 방향키 입력을 빈칸과 맞닿은 타일 이동으로 변환한다.
 function handleKeydown(event) {
   const emptyIndex = tiles.indexOf(EMPTY);
@@ -278,7 +292,19 @@ resetRecordButton.addEventListener("click", () => {
   localStorage.removeItem(STORAGE_KEY);
   renderRecords();
 });
+infoButton.addEventListener("click", openInfoDialog);
+closeInfoButton.addEventListener("click", closeInfoDialog);
+infoDialog.addEventListener("click", (event) => {
+  if (event.target === infoDialog) {
+    closeInfoDialog();
+  }
+});
 board.addEventListener("keydown", handleKeydown);
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && !infoDialog.hidden) {
+    closeInfoDialog();
+  }
+});
 
 renderRecords();
 startNewGame();
