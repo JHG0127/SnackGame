@@ -15,6 +15,9 @@
           <h1 id="game-title">4x4 숫자 퍼즐</h1>
         </div>
         <div class="actions">
+          <button id="info-button" class="icon-button" type="button" aria-label="게임 설명 보기" aria-haspopup="dialog">
+            i
+          </button>
           <button id="new-game-button" class="button primary" type="button" aria-label="새 게임 시작">
             새 게임
           </button>
@@ -57,6 +60,26 @@
       <p id="message" class="message" aria-live="polite"></p>
     </section>
   </main>
+
+  <div id="info-dialog" class="dialog-backdrop" role="dialog" aria-modal="true" aria-labelledby="info-title" hidden>
+    <section class="dialog">
+      <header class="dialog-header">
+        <h2 id="info-title">게임 방법</h2>
+        <button id="close-info-button" class="icon-button" type="button" aria-label="게임 설명 닫기">
+          ×
+        </button>
+      </header>
+      <div class="dialog-content">
+        <p>숫자 타일을 움직여 1부터 15까지 순서대로 맞추는 퍼즐입니다.</p>
+        <ul>
+          <li>빈칸과 맞닿은 타일만 이동할 수 있습니다.</li>
+          <li>타일을 클릭하거나 키보드 방향키로 움직일 수 있습니다.</li>
+          <li>연한 초록색은 올바른 위치, 연한 노란색은 아직 맞춰야 할 타일입니다.</li>
+          <li>최소 이동 횟수와 최단 시간은 이 브라우저에 저장됩니다.</li>
+        </ul>
+      </div>
+    </section>
+  </div>
 
   <script src="script.js"></script>
 </body>
