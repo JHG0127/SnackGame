@@ -4,11 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>미니 게임 모음</title>
-  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
   <main class="app" aria-labelledby="game-title">
     <section class="game-panel">
+      <nav class="game-switcher" aria-label="게임 선택">
+        <button class="game-tab active" type="button" data-game="puzzle" aria-pressed="true">
+          숫자 퍼즐
+        </button>
+        <button class="game-tab" type="button" data-game="memory" aria-pressed="false">
+          카드 기억
+        </button>
+      </nav>
+
       <header class="header">
         <div>
           <p id="game-eyebrow" class="eyebrow">Sliding Puzzle</p>
@@ -26,15 +35,6 @@
           </button>
         </div>
       </header>
-
-      <nav class="game-switcher" aria-label="게임 선택">
-        <button class="game-tab active" type="button" data-game="puzzle" aria-pressed="true">
-          숫자 퍼즐
-        </button>
-        <button class="game-tab" type="button" data-game="memory" aria-pressed="false">
-          카드 기억
-        </button>
-      </nav>
 
       <section class="stats" aria-label="현재 게임 상태">
         <div class="stat">
@@ -82,6 +82,6 @@
     </section>
   </div>
 
-  <script src="script.js?v=3"></script>
+  <script src="script.js?v=4"></script>
 </body>
 </html>
